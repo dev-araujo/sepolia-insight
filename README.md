@@ -76,7 +76,6 @@ npm run dev
 
 | Variável | Descrição |
 |---|---|
-| `PRIVATE_KEY` | Chave privada server-side para salvar auditorias |
 | `NEXT_PUBLIC_SEPOLIA_RPC` | Endpoint RPC da Sepolia |
 | `NEXT_PUBLIC_AUDIT_REGISTRY_ADDRESS` | Endereço do contrato implantado no passo 1 |
 | `ETHERSCAN_API_KEY` | Chave da API Etherscan |
