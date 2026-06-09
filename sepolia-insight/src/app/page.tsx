@@ -26,6 +26,7 @@ import {
 } from "@/shared/components/ui/alert-dialog";
 import { ScrollArea } from "@/shared/components/ui/scroll-area";
 import { Separator } from "@/shared/components/ui/separator";
+import { MOCK_AUDIT_ENTRY, MOCK_AUDIT_RESULT } from "@/features/contract-analyzer/constants/mock-audit";
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -324,6 +325,40 @@ export default function Home() {
               </div>
             )}
           </ScrollArea>
+
+          <div className="border-t p-3 bg-muted/5 shrink-0">
+            <p className="text-[9px] uppercase font-bold text-muted-foreground/50 mb-2 tracking-widest ml-1">Demo</p>
+            <div
+              className={`p-3 border border-dashed rounded-xl hover:bg-muted/50 cursor-pointer transition-colors ${
+                result?.address?.toLowerCase() === MOCK_AUDIT_ENTRY.address.toLowerCase()
+                  ? "border-primary bg-primary/5"
+                  : "border-muted-foreground/20"
+              }`}
+              onClick={() => {
+                setAddress(MOCK_AUDIT_ENTRY.address);
+                setNetwork("eth-sepolia");
+                setResult(MOCK_AUDIT_RESULT);
+                setTxHash(null);
+                toast.info("Audit de exemplo carregado.");
+                window.scrollTo({ top: 400, behavior: "smooth" });
+              }}
+            >
+              <div className="flex justify-between items-start mb-1">
+                <span className="text-[10px] font-black uppercase text-primary/60">Exemplo</span>
+                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                  Low
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 mb-2">
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  {MOCK_AUDIT_ENTRY.address.slice(0, 10)}...{MOCK_AUDIT_ENTRY.address.slice(-4)}
+                </span>
+              </div>
+              <p className="text-[11px] text-muted-foreground line-clamp-2 leading-tight">
+                {MOCK_AUDIT_ENTRY.summary}
+              </p>
+            </div>
+          </div>
         </aside>
       </div>
 
