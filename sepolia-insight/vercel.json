@@ -3,14 +3,8 @@
     "src/app/api/analyze/route.ts": {
       "maxDuration": 60
     },
-    "src/app/api/save/route.ts": {
-      "maxDuration": 60
-    },
     "src/app/api/audits/route.ts": {
       "maxDuration": 60
-    },
-    "src/app/api/cache/route.ts": {
-      "maxDuration": 30
     }
   }
 }
